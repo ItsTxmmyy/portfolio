@@ -1,0 +1,71 @@
+import React from 'react'
+
+const Projects = () => {
+  const projects = [
+    {
+      name: 'Melodify',
+      description: 'A music recommendation app that uses machine learning to suggest songs based on user preferences and listening history.',
+      technologies: ['User Research', 'UI/UX Design', 'HTML/CSS', 'React', "Tailwind CSS"],
+      logo: ''
+    },
+    {
+      name: 'Dear Diary',
+      description: 'A journaling app that uses AI to help users reflect on their day, set goals, and improve their mental well-being through personalized prompts and mood tracking.',
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Chakra UI'],
+      logo: ''
+    },
+    {
+      name: 'CareerQuest',
+      description: 'A job search platform that connects students with internship and job opportunities, featuring resume building tools and interview preparation resources.',
+      technologies: ['Python', 'AWS Lambda', 'Amazon Bedrock', 'APIs'],
+      logo: ''
+    },
+    {
+      name: 'One Stop Cinema',
+      description: 'A web application that allows users to browse and search for movies, view details, and create watchlists.',
+      technologies: ['HTML', 'JavaScript', 'CSS', 'Bootstrap', 'User Research', 'UI/UX Design'],
+      logo: ''
+    }
+  ]
+
+  return (
+    <section id="projects" className="organizations">
+      <div className="container">
+        <div className="section-header">
+          <h2>Projects</h2>
+        </div>
+        
+        <div className="organizations-grid">
+          {projects.map((project, index) => (
+            <div key={index} className="organization-card">
+              <div className="org-header">
+                <div className="org-logo">
+                  {typeof project.logo === 'string' && project.logo.startsWith('/') ? (
+                    <img 
+                      src={project.logo} 
+                      alt={`${project.name} logo`}
+                      className="logo-emoji"
+                    />
+                  ) : (
+                    <span className="logo-emoji">{project.logo}</span>
+                  )}
+                </div>
+                <div className="org-info">
+                  <h3>{project.name}</h3>
+                </div>
+              </div>
+              <p className="org-description">{project.description}</p>
+              <div className="technologies">
+                {project.technologies.map((tech, techIndex) => (
+                  <span key={techIndex} className="tech-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Projects
